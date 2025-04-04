@@ -26,12 +26,12 @@ def login():
 
     if form_login.validate_on_submit() and 'botao_submit_login' in request.form:
         print("✅ Login realizado com sucesso!")  # Debug
-        flash(f'Login feito com sucesso no e-mail: {form_login.email.data}') #Verificar se logou e informar o email ao logar no botão
+        flash(f'Login feito com sucesso no e-mail: {form_login.email.data}', 'alert alert-success') #Verificar se logou e informar o email ao logar no botão
         return redirect(url_for('home')) #redireciona para pagina homepage
 
     if form_criarconta.validate_on_submit() and 'botao_submit_criarconta' in request.form:
         print("✅ Conta criada com sucesso!")  # Debug
-        flash(f'Conta criada com sucesso no e-mail: {form_criarconta.email.data}') #conta criada com sucesso botão criar conta
+        flash(f'Conta criada com sucesso no e-mail: {form_criarconta.email.data}', 'alert alert-success') #conta criada com sucesso botão criar conta
         return redirect(url_for('home')) #redireciona para homepage
 
     return render_template('login.html', form_login=form_login, form_criarconta=form_criarconta)
